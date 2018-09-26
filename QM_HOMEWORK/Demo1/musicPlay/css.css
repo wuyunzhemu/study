@@ -1,0 +1,24 @@
+.wrap{
+    height:2000px;
+}
+.logo{
+    position:fixed;
+    top:20px;
+    right:80px;
+}
+.logo img{
+    width:80px;
+    height:80px;
+    cursor: pointer;
+    transform: rotate(0deg);
+    animation: rotate 5s linear infinite running;
+}
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg)
+    }
+    100%{
+        transform: rotate(360deg)
+    }
+}
+
