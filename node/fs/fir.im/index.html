@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
@@ -10,15 +10,44 @@
       margin:0;
       padding: 0;
     }
-    html body{
-      height: 100%;
-      width:100%;
-    }
+
 
     body{
       background:yellow;
       overflow: hidden;
     }
+
+    img{
+      max-width: 100%;
+    }
+    @media screen and (max-height:720px) and (max-width:960px){
+      body{
+      background:white;
+      overflow: hidden;
+    }
+      .plane-wrapper{
+      position: absolute;
+      top: 25%;
+      left:5%;
+      display: inline-block;
+      animation:undulate 8s linear infinite alternate; 
+      perspective: 2500px;
+      transition: all .5s;
+    }
+
+
+    .plane-wrapper .rotate-container{
+      position: absolute;
+      /* 百分比是解决设备适配问题的一种方案 */
+      top: 51.7003%;
+      left:13.1%;
+      width: 27.424%;
+      height: 14.4474%;
+      animation:rotating .2s linear infinite
+      reverse;
+    }
+    }
+    
 
     .plane-wrapper{
       position: absolute;
@@ -109,6 +138,11 @@
  
   <Script>
     //  事件监听是具有兼容性的 IE和Chome的标准不太一样
+    window.onresize=resize;
+    resize();
+    function resize(){
+      let boxWidth=document.get
+    }
     const section =document.querySelector('.section');
     document.body.onmousewheel=function(event){
       // IE9以下
