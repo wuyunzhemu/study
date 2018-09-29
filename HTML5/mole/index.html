@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="./style.css"> 
+  <title>打地鼠</title>
+</head>
+<body>
+  <h1>
+    Whack-a-mole!
+    <span class="score">0</span>
+  </h1>
+  <button class="start" onclick="startGame()">Start!</button>
+  <div class="game">
+    <div class="hole hole1">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole2">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole3">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole4">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole5">
+      <div class="mole"></div>
+    </div>
+    <div class="hole hole6">
+      <div class="mole"></div>
+    </div>
+  </div>
+  <script>
+    const holes = document.querySelector('.hole');
+    const scoreBoard = document.querySelector('.score');
+    const moles = document.querySelectorAll('.mole');
+    let score = 0;
+    let lastHole; //状态，上一次是哪个洞，新随机生成的一样的话，再随机一次，否则lastHole = 刚生成的随机数
+    let timeUp = false;//游戏结束
+    let isPlaying = false;//游戏正在进行
+
+    function startGame(){
+      if(isPlaying) return;
+      isPlaying = true;
+      scoreBoard.textContent = 0;
+      timeUp = false;
+      score = 0;
+      peep();
+      setTimeout(()=>{
+        timeUp = true;
+        isPlaying = false;
+        alert('游戏结束');
+      },20000);
+    }
+    
+    function peep(){
+
+    }
+
+    function bonk(e){
+      score++;
+      this.parentNode.classList.remove('up');
+      scoreBoard.textContent=score;
+    }
+
+    moles.forEach(mole => mole.addEventListener('click',bonk))
+
+
+  </script>
+</body>
+</html>
