@@ -35,11 +35,11 @@
     </div>
   </div>
   <script>
-    const holes = document.querySelector('.hole');
+    const holes = document.querySelectorAll('.hole');
     const scoreBoard = document.querySelector('.score');
     const moles = document.querySelectorAll('.mole');
     let score = 0;
-    let lastHole; //状态，上一次是哪个洞，新随机生成的一样的话，再随机一次，否则lastHole = 刚生成的随机数
+    let lastHole=0; //状态，上一次是哪个洞，新随机生成的一样的话，再随机一次，否则lastHole = 刚生成的随机数
     let timeUp = false;//游戏结束
     let isPlaying = false;//游戏正在进行
 
@@ -53,19 +53,47 @@
       setTimeout(()=>{
         timeUp = true;
         isPlaying = false;
+        holes.forEach(hole=>hole.classList.remove('up'));
         alert('游戏结束');
       },20000);
     }
     
     function peep(){
-      randomHole();
-      randomTime();
+      let hole = randomHole(holes);
+      // console.log(hole);
+      let time = randomTime(500,2000);
+      hole.classList.add('up');
+      setTimeout(()=>{
+        if(!timeUp)
+        {
+          hole.classList.remove('up');
+          peep();
+        }
+      },time);
+    }
+    
+    function randomTime(minTime,maxTime){
+      return (Math.random()*(maxTime-minTime)+minTime)    //某一时间区间，取随机值
     }
 
+    function randomHole(holes){
+      // console.log(holes.length)
+      const holeid =Math.floor( holes.length * Math.random());
+      // console.log(holeid);
+      let hole = holes[holeid];
+      if(hole == lastHole){
+        return randomHole(holes);
+      }
+      else{
+        lastHole = hole;
+        return hole;
+      }
+    }
     function bonk(e){
       score++;
       this.parentNode.classList.remove('up');
       scoreBoard.textContent=score;
+      peep();
     }
 
     moles.forEach(mole => mole.addEventListener('click',bonk))
