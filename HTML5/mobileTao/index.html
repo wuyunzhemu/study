@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="text" id="salary">
+<script>
+  const salaryInput = document.getElementById('salary');
+  salaryInput.addEventListener('change',function(){
+    // 输入框的哪怕是数字，类型是String
+    // 值的类型自动转换，隐式类型转换
+    console.log(salary(this.value,'D'));
+  })
+
+
+  /*
+  * 功能：计算全年工资
+  * @params salary number
+  * @pramas level default C,in 'ABCD'
+  * @return number
+  */
+  salary = function(amoney,level='C'){
+    //  if(level === 'A' || level === 'B' || level === 'C' || level === 'D')
+    //  {
+    //    throw new Error('请选择绩效等级');
+    //  }
+    if(level.length == 1 && 'ABCD'.indexOf(level)<0){
+      throw new Error('请选择绩效等级');
+    }
+    console.log(arguments);
+    if (arguments.length ==0){
+      throw new Error('请输入工资');
+    }
+    let money =Number(amoney);
+    let rewardMonth;
+    if(Number(money)<=0 ){
+      throw new Error('请确认工资是否正确');
+    }
+    if(level === 'A')
+    {
+      rewardMonth = 6;
+    }
+    if(level === 'B')
+    {
+      rewardMonth = 4;
+    }
+    if(level === 'C')
+    {
+      rewardMonth=2.5;
+    }
+    if(level === 'D')
+    {
+      rewardMonth = 0;
+    }
+
+    return money*(12+rewardMonth);
+      // switch(level){
+      //   case 'A':
+      //     return money*(12+rewardMonth);
+      //     break;
+      //   case 'B':
+      //     return money*16;
+      //     break;
+      //   case 'C':
+      //     return money*14.5;
+      //     break;
+      //   case 'D':
+      //     return money*12;
+      //     break;
+      //   default:
+      //     return '开除';
+      //     break;
+      //}
+  }
+ // alert(salary(10000,'F'));
+//   let money = prompt('请输入用户的工资');
+//   let salary2 =money * (12+2.5);
+//   console.log(salary2);
+</script>
+</body>
+</html>
