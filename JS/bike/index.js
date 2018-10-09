@@ -1,8 +1,8 @@
 // 首字母大写，构造函数
 var BicycleShop;
-console.log(BicycleShop);
-BicycleShop = null;
-console.log(BicycleShop);
+// console.log(BicycleShop);
+// BicycleShop = null;
+// console.log(BicycleShop);
 BicycleShop = function(name){
   this.name = name;
 }
@@ -43,7 +43,8 @@ Bicycle.prototype = {
     console.log('wash ok!');
   },
   getName:function(){
-    return this.name;
+    let bike = this;
+    return bike.name;
   }
 };
 
@@ -69,7 +70,7 @@ BicycleShop.prototype = {
     let bicycle = BicycleFactory.creatBicycle(model);
     bicycle.assemble();
     bicycle.wash();
-    console.log(bicycle.getName());
+    console.log(bicycle.getName() + '卖出去了');
   }
 }
 // BicycleShop = 1;
