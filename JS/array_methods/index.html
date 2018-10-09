@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ES6 Array 新方法</title>
+</head>
+<body>
+  <script>
+    const race = '100m Dash';
+    const winners = ['Hunber Gath','Singa Song','Imda Bos'];
+    // const win =[];
+    // for(let index=0;index < winners.length;index++){
+    //   win.push({
+    //     name:winners[index],
+    //     race:race,
+    //    place:index+1
+    //   })
+
+    // }
+    // 遍历每一项,函数里，返回新的一项
+    // 函数式编程
+
+    // 如果箭头函数内只有一句代码，并且是返回值，可以省去return
+    const win = winners.map((name,i)=>({                 // = function(name,i){}
+      name:name,                                   //省去了return JSON数组时的花括号
+      race,
+      place:i+1,
+      })
+    );
+    console.log(win);
+  </script>
+</body>
+</html>
