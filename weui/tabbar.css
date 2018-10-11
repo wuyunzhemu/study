@@ -43,10 +43,15 @@ a{
   min-width: 8px;
   padding: .15em .4em;
   font-size: 12px;
-  line-height: 12px;
+  line-height:1.2;
   background-color: #f43539;
   border-radius: 18px;
   color:#ffffff;
+
+}
+
+.weui-badge_dot{
+
 }
 
 .weui-tabbar__label{
