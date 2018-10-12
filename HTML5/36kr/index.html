@@ -177,7 +177,8 @@
       <div class="single-post-comment">
           <h4><a name="comment" class="comment-list-title comment-title">参与讨论</a></h4>
           <div class="input-module"><div class="textarea-wrapper"><textarea id="J_comment_area_5156523" placeholder="你怎么看..."></textarea><div class="user"><button type="button" data-stat-click="pinglun.fabupinglun">提交评论</button><div class="current-user"><span class="img img111" style="background: url(&quot;https://krplus-pic.b0.upaiyun.com/201512/18/3a887991a3e34ce2bb98fac88492be4d.jpg!480&quot;) center center / cover no-repeat;"> </span><span class="name">旅梦</span></div></div></div><div class="blockel"></div></div>
-          <div class="display-module"><div><div class="comment-list-title">最新评论</div><ul data-ii="20"><li data-id="664885"><span class="img" style="background: url(&quot;https://krplus-pic.b0.upaiyun.com/201512/18/fcf6b8ba4d734292b94c9ff505adfd99.jpg!120&quot;) 50% 50% / cover no-repeat;"></span><div class="msgwrap"><div class="user-info"><span class="name">陈鑫</span><span class="time"><!-- react-text: 253 -->&nbsp;·&nbsp;<!-- /react-text --><!-- react-text: 254 -->1小时前<!-- /react-text --></span><div class="user-info-right"><span class="commentlist-like commentlist-like-liked"><span class="commentlist-like-icon"></span><span class="commentlist-like-count">1</span></span><a class="submit" data-stat-click="pinglun.huifupinglun">回复</a></div></div><p><span class="text">可惜了，这么好的文章，没人点赞</span></p></div><!-- react-empty: 259 --></li></ul></div></div>
+          <div class="display-module"><div><div class="comment-list-title">最新评论</div><ul data-ii="20">
+            <li data-id="664885"><span class="img" style="background: url(&quot;https://krplus-pic.b0.upaiyun.com/201512/18/fcf6b8ba4d734292b94c9ff505adfd99.jpg!120&quot;) 50% 50% / cover no-repeat;"></span><div class="msgwrap"><div class="user-info"><span class="name">陈鑫</span><span class="time"><!-- react-text: 253 -->&nbsp;·&nbsp;<!-- /react-text --><!-- react-text: 254 -->1小时前<!-- /react-text --></span><div class="user-info-right"><span class="commentlist-like commentlist-like-liked"><span class="commentlist-like-icon"></span><span class="commentlist-like-count">1</span></span><a class="submit" data-stat-click="pinglun.huifupinglun">回复</a></div></div><p><span class="text">可惜了，这么好的文章，没人点赞</span></p></div><!-- react-empty: 259 --></li></ul></div></div>
       </div>
     </div>
     <script>
@@ -217,6 +218,7 @@
          check:function(comment){
           if(comment.length === 0||'法轮功'.indexOf(comment) >=0)
           {
+            alert('评论内容不正确');
             return false;
           }
           return true
@@ -225,17 +227,26 @@
       function CommentItem(comment){
         this.comment = comment
         this.ele = document.querySelector('.display-module ul');
-        this.ele.innerHTML = this.getHtml();
+        this.ele.innerHTML += this.getHtml();
         console.log('新增一条评论');
+        this.bindEvent();
       }      
       CommentItem.prototype = {
+        bindEvent:function(){
+          let replyBtn = document.querySelector('li[data-id="6644889] a.submit');
+          replyBtn.addEventListener('click',function(){
+
+          })
+        },
         getHtml:function(){
           let html = `<li data-id="664885"><span class="img" style="background: url(${currentUser.avatar}) 50% 50% / cover no-repeat;"></span><div class="msgwrap"><div class="user-info"><span class="name">${currentUser.username}</span><span class="time">&nbsp;·&nbsp;刚刚</span><div class="user-info-right"><span class="commentlist-like commentlist-like-liked"><span class="commentlist-like-icon"></span><span class="commentlist-like-count">1</span></span><a class="submit" data-stat-click="pinglun.huifupinglun">回复</a></div></div><p><span class="text">${this.comment}</span></p></div></li>`;
           return html;
         },
         addFavourite:function(){
+
         },
         reply:function(){
+          
         }
        }
     new commentForm();
