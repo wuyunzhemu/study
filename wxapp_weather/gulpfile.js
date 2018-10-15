@@ -34,3 +34,4 @@ gulp.task('wxss',()=>{
   combined.on('error',()=>{});
 })
 
+gulp.task('default',['wxml','wxss','json']);
