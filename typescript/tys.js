@@ -1,6 +1,6 @@
 function greeter(person) {
-    return 123;
+    return 'asd';
     return "Hello," + person;
 }
-var user = 123;
+var user = 'asd';
 document.body.innerHTML = greeter(user);
