@@ -5,6 +5,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+a{
+  text-decoration: none;
+}
 
 html,body{
   height: 100%;
@@ -44,4 +47,26 @@ ul,li{
 }
 .flag .flag-item.figure img{
   max-width: 100%;
+}
+
+.flag .figcaption{
+  padding:0.16rem 0.213333rem;
+}
+
+.flag .flag-title a{
+  color:black;
+  font-size: 0.23333rem;
+}
+
+.flag .flag-price{
+  margin:6px 0px;
+  /* height:; */
+}
+
+.flag .flag-price .flag-price__11logo{
+  display: inline-block;
+  background-color: #f32a4c;
+  color:white;
+  padding:0 3px;
+  font-weight: bold;
 }
