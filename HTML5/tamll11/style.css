@@ -17,8 +17,10 @@ html,body{
   height: 100%;
 }
 .item-section{
+  height: 100%;
   background-color: red;
   position: relative;
+  overflow: scroll;
 }
 .item-section_header img{
   width: 10rem;
@@ -34,6 +36,8 @@ ul,li{
   width: 100%;
   margin-bottom: 1px;
   background: white;
+  position: relative;
+  border-bottom: #f32a4c 0.1px;
 }
 .flag .flag-item{
   display: table-cell;
@@ -42,11 +46,14 @@ ul,li{
   background: white;
 }
 .flag .flag-item.figure{
-  width: 2.34667rem;
-  height: 2.34667rem;
+  width: 2.44667rem;
+  height: 2.44667rem;
+ 
 }
 .flag .flag-item.figure img{
+  margin: 0 auto;
   max-width: 100%;
+  display: block;
 }
 
 .flag .figcaption{
@@ -58,15 +65,55 @@ ul,li{
   font-size: 0.23333rem;
 }
 
-.flag .flag-price{
-  margin:6px 0px;
-  /* height:; */
+.flag .flag-title a:hover{
+  text-decoration: underline;
 }
 
-.flag .flag-price .flag-price__11logo{
+.flag .flag-price{
+  margin:5px 0px;
+  
+}
+
+.flag  .flag-price__11logo{
   display: inline-block;
   background-color: #f32a4c;
   color:white;
-  padding:0 3px;
+  padding:0.8px 3px;
   font-weight: bold;
+}
+
+.flag .flag-price__main{
+  font-size: 0.42rem;
+  color:#f32a4c;
+  font-weight: 1000;
+  margin-right: 0.133333rem;
+}
+
+.flag .flag-price__discount{
+  display: inline-block;
+  letter-spacing: 0;
+  font-size: 0.2rem;
+  color:#f32a4c;
+  font-weight: bold;
+}
+
+.flag .flag-sell__info{
+  display: block;
+  margin-top: 0.233333rem;
+  color:#ff6a30;
+  font-size: 0.2rem;
+}
+
+.flag .flag-buybtn{
+  background-color: #f32a4c;
+  height:0.6666667rem;
+  width:2.1rem;
+  border:none;
+  border-radius: 1px;
+  position: absolute;
+  right:0.2533333rem;
+  bottom: 0.1rem;
+  color:white;
+  font-weight: bold;
+  cursor: pointer;
 }
