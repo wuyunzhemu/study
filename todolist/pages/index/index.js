@@ -9,8 +9,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     lists:[],
-    text:'周末看影'
-
+    text:'周末看影',
+    status:1
   },
   //事件处理函数
   bindViewTap: function() {
@@ -61,6 +61,16 @@ Page({
     })
     this.setData({
      lists:lists
+    })
+  },
+  setStatus:function(e){
+    console.log('enter setStatus');
+    let status = e.currentTarget.dataset.status;
+    console.log(status)
+    if(status == this.data.status)return;
+    console.log('setData')
+    this.setData({
+      status:status
     })
   }
 })

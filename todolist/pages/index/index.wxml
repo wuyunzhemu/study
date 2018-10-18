@@ -3,11 +3,21 @@
     <!-- 没有登录前，拿不到用户信息 -->
     <button size="mini" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登陆</button>
     <block wx:else>
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"/>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"/>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <button type="warn" class="mini-btn" size="mini" bindtap="addTodoShow">+添加</button>
+  <view class="titleBar">
+    <view class="status">
+      <text class = "{{status == '1'?'active':''}}" bindtap="setStatus" data-status="1">全部</text>
+      <text class = "{{status == '2'?'active':''}}" bindtap='setStatus' data-status="2">未完成</text>
+      <text class = "{{status == '3'?'active':''}}" bindtap='setStatus' data-status="3">已完成</text>
+    </view>
+    <view class ='add'>
+      <button type="warn" class="mini-btn" size="mini" bindtap="addTodoShow">+添加</button>
+    </view>
+  </view>
+  
   <scroll-view class="lists" scroll-y="true">
     <block wx:if="{{!lists.length}}">
       <view class="nodata">暂无数据</view>
@@ -16,6 +26,4 @@
       <text>{{item.text}}</text>
     </view>
   </scroll-view>
- 
-
 </view>

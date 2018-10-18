@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  height:25vh;
 }
 
 .userinfo-avatar {
@@ -22,5 +23,40 @@
 
 .lists{
   height: 0;
+  flex:1;
+  padding-left: 100rpx;
+}
+
+.titleBar{
+  width: 100%;
+  border-bottom:1px #eee solid;
+  display: flex;
+  padding: 0 30rpx 10rpx;
+  align-items: center;
+}
+.titleBar .status{
+  flex:1;
+}
+
+.titleBar .status .add{
+  overflow: hidden;
+}
+.titleBar .status .add button{
+  float: right;
+}
+
+.titleBar .status text{
+  display: inline;
+  font-size: 12pt;
+  padding:10rpx 20rpx 10rpx 15rpx;
+  margin-right: 15px;
+}
+
+.titleBar .status text.active{
+  color:#ca2100;
+}
+
+.lists{
+  height:0;
   flex:1;
 }
