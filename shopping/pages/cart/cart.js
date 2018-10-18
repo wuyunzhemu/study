@@ -38,20 +38,20 @@ Page({
             id:1,title:'Iphone MX',
             num:1,
             image:'/image/s5.png',
-            price:867,
+            price:867.54,
             selected:true
           },
           {
-            id:2,title:'ipad',
+            id:2,title:'球形ipad',
             num:1,
             image: '/image/s6.png',
-            price:450,
+            price:450.25,
             selected:true
           },{
-            id:3,title:'刀',
+            id:3,title:'一盘刀',
             image: '/image/s4.png',
             num:1,
-            price:4,
+            price:4.44,
             selected:false
           }
         ],
@@ -170,5 +170,21 @@ Page({
       carts
     })
     this.getTotalPrice()
+  },
+  minusCount:function(e){
+    let carts = this.data.carts;
+    let index = e.currentTarget.dataset.index;
+    carts[index].num--;
+    if(carts[index].num<=0)
+    {
+      carts[index].num=1;
+    }
+    this.setData({
+      carts
+    })
+  },
+  toPay:function(e){
+    let price = e.currentTarget.dataset.price;
+    console.log('支付'+price+'元')
   }
 })
