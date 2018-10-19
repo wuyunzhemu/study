@@ -172,6 +172,7 @@ Page({
     this.getTotalPrice()
   },
   minusCount:function(e){
+    console.log('minusCount');
     let carts = this.data.carts;
     let index = e.currentTarget.dataset.index;
     carts[index].num--;
