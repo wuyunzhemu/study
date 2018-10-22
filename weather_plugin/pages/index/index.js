@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-import confit from '../../utils/config'
+
 const app = getApp()
 
 Page({
