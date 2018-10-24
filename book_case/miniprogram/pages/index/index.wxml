@@ -1,0 +1,9 @@
+<block wx:for="{{book_list}}" wx:key="{{item.id}}">
+  <van-card 
+  title="{{item.title}}" 
+  thumb="{{item.image}}"
+  desc="{{item.author}}"
+  price="{{item.price}}"
+  >  
+  </van-card>
+</block>
