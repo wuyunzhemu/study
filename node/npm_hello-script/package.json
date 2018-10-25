@@ -1,0 +1,21 @@
+{
+  "name": "npm_hello-script",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint:js": "eslint *.js",
+    "lint:css": "stylelint *.less",
+    "test": "npm-run-all --parallel lint:*"
+  },
+  "keywords": [],
+  "author": "wuyunzhemu <415159489@qq.com> (http://github.com/wuyunzhemu)",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.7.0"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.3",
+    "stylelint-config-standard": "^18.2.0"
+  }
+}
