@@ -20,11 +20,12 @@ Page({
       title:'数据加载中...'
     });
     userInfo.where({
-      _openid:options.id
+      _openid:openid
     }).get().then(userRes =>{
       photos.where({
-        _openid:options._id
+        _openid:openid
       }).get().then(photoRes =>{
+        console.log(photoRes.data)
         this.setData({
           photos:photoRes.data,
           userInfo: userRes.data[0]

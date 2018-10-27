@@ -22,5 +22,9 @@
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.11.1"
+  },
+  "dependencies": {
+    "cloud": "^2.0.2",
+    "got": "^9.2.2"
   }
 }
