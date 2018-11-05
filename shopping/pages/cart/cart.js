@@ -183,6 +183,7 @@ Page({
     this.setData({
       carts
     })
+    this.getTotalPrice()
   },
   toPay:function(e){
     let price = e.currentTarget.dataset.price;
