@@ -41,7 +41,7 @@ class Rain extends Particle{
     let speed = speedFactory * h
     let ps = (this.particles = [])
     for(let i =0; i <amount; i++){
-      // 确定线的起点及终点
+      // 确定线的起点及终点l
       let p ={
         x:Math.random() * w,
         y:Math.random() * h,

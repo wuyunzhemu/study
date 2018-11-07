@@ -23,7 +23,7 @@ Page({
     const ctx = wx.createCanvasContext(canvasId);
         // canvas 的绘制大小  下雨效果没啥界面设计，有界面设计则以750设计稿为优先
     let {width,scale}= this.data
-    let height = 768 / 2 * scale
+    let height = 3000 / 2 * scale
     let rain = drawEffect(ctx,width,height,{amount:100,speedFactor:0.03})
     rain.run();
   }
