@@ -1,6 +1,7 @@
 wx.cloud.init();
 const db = wx.cloud.database();
-const notes= db.collection('notes');
+const notes = db.collection('notes');
+
 
 const formatTime = date => {
   const year = date.getFullYear()
@@ -17,28 +18,31 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-// 加载notes，page形参 limit=10，fn
-const loadNotes = (fn,page=1,limit = 10)=>{
-// return 数据集，异步
-  const skip = (page-1)*limit;
+
+// 加载notes, page=1形参 limit = 10, fn  
+const loadNotes = (fn, page = 1, limit = 10) => {
+  // return 数据集 异步，
+  const skip = (page - 1) *limit;
   let total = 0;
-  let data;
   notes
     .count()
-    .then(res=>{
+    .then(res =>  {
       total = res.total
       return notes
         .limit(limit)
         .skip(skip)
         .get()
+        
     })
-      .then(res=>{
-        fn({
-          total,
-          data:res.data
-        })
+    .then(res => {
+      fn({
+        total,
+        data: res.data
       })
+    })
+  // fn(data); 
 };
+
 module.exports = {
   formatTime: formatTime,
   loadNotes
