@@ -1,0 +1,6 @@
+<view class="wux-badge">
+  <view class="wux-badge__count wux-class-badge">
+    <!-- {{count>overflowCount?overflowCount+'+':count}} -->
+    {{finalCount}}
+  </view>
+</view>
