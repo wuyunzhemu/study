@@ -11,7 +11,7 @@
 </template>
 <script>
   import wepy from 'wepy'
-  import 'wepy-async-function'
+
   export default class extends wepy.page {
     config={
       navigationBarTitleText:'授权登录'
