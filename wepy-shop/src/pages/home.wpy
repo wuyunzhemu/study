@@ -43,10 +43,10 @@ import tip from '@/utils/tip'
     }
     methods = {
       closeAlert(){
-        tip.log('关闭了');
+        console.log('关闭了');
       },
     alertCallback(){
-      tip.log('参加活动');
+      console.log('参加活动');
     }
     }
     async getAdList () {

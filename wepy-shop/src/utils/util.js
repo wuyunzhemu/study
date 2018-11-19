@@ -107,6 +107,7 @@ function replaceColon(txt) {
 // 转换星星分数
 function convertStarArray(score) {
   // 1 全星,0 空星,2半星
+ 
   let arr = []
   for (let i = 1; i <= 5; i++) {
     if (score >= i) {
