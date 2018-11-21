@@ -1,0 +1,15 @@
+{
+  "name": "template",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "wuyunzhemu <415159489@qq.com> (http://github.com/wuyunzhemu)",
+  "license": "MIT",
+  "dependencies": {
+    "lodish": "^1.0.0"
+  }
+}

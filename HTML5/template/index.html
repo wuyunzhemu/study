@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="name_list"></ul>
+  <!-- 数据展示写在js里，不好调，lol专题，产品和运营人员，设计师也要能改 -->
+  <script type="text/html" id="user_tmpl">
+    <% for(var i = 0; i < users.length; i++) {%>
+      <li>
+        <a href="<%= users[i].url%>">
+          <%= users[i].name %>
+        </a>
+      </li>
+    <% }%>
+  </script>
+  <script src="./node_modules/lodash/lodash.min.js"></script>
+  <script>
+    const data = {
+      users:[
+        { "name": "Kevin", "url": "http://localhost" },
+        { "name": "Daisy", "url": "http://localhost" },
+        { "name": "Kelly", "url": "http://localhost" }
+      ]
+    }
+    const precompile = _.template(document.getElementById('user_tmpl').innerHTML);
+      const html = precompile(data);
+      console.log(html);
+      const container = document.getElementById('name_list');
+      container.innerHTML = html;
+
+    // const ul = document.querySelector('ul')
+    // let a;
+    // for(let i = 0;i<data.users.length;i++){
+    //   const liNode = document.createElement('li')
+    //   liNode.id=`li${i}`;
+    //   const aNode = document.createElement('a')
+    //   aNode.id = `url${i}`;
+    //   aNode.innerHTML = data.users[i].name;
+    //   aNode.href = data.users[i].url;
+    //   ul.appendChild(liNode)
+    //   document.querySelector(`#li${i}`).appendChild(aNode);
+    // }
+//     let users = data.users;
+//     document.getElementById('name_list').innerHTML = users.map(user => `
+//   <li>
+//     <a href="${user.url}">${user.name}</a>
+//   </li>
+// `).join('')
+  </script>
+</body>
+</html>
