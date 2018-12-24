@@ -25,6 +25,8 @@
   },
   "dependencies": {
     "cloud": "^2.0.2",
-    "got": "^9.2.2"
+    "got": "^9.2.2",
+    "prop-types": "^15.6.2",
+    "react-router-dom": "^4.3.1"
   }
 }
