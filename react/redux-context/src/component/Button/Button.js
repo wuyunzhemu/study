@@ -1,11 +1,41 @@
-import React,{Component} from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+export default class Button extends Component {
+  static contextTypes = {
+    store: PropTypes.object,
+    subscribe:PropTypes.func,
+    getStore:PropTypes.func,
+    dispatch:PropTypes.func
+  }
+  constructor (props) {
+    super(props);
+    this.state = {};
+  }
+  componentWillMount() {
+    this._upState();
+  }
+  _upState () {
+    const { store } = this.context;
+    this.setState({
+      ...store
+    });
+  }
 
-export default class Button extends Component{
-  render(){
+  changeContext = (type) => {
+    const {dispatch} = this.context;
+    const key = type ==='HEAD'?
+    'head':'body'
+    dispatch({
+      type:type,
+      payload:`我是修改后的${key}`
+    })
+  }
+
+  render () {
     return (
       <div className="button">
-        <div className="btn">改变head</div>
-        <div className="btn">改变body</div>
+        <div className="btn" onClick={()=> this.changeContext('HEAD')}>{this.state.headBtn}</div>
+        <div className="btn" onClick={()=>this.changeContext('BODY')}>{this.state.bodyBtn}</div>
       </div>
     )
   }

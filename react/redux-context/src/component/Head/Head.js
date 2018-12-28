@@ -3,19 +3,23 @@ import PropTypes from 'prop-types';
 
 export default class Head extends Component{
   static contextTypes = {
-    store:PropTypes.object
+    store:PropTypes.object,
+    subscribe:PropTypes.func,
+    getStore:PropTypes.func
   }
   constructor(props){
     super(props);
     this.state = {};
   }
   componentWillMount = () => {
+    const {subscribe} = this.context;
     this._upState();
+    subscribe(()=>this._upState())
   }
   _upState(){
-    const {store} = this.context;
+    const {getStore} = this.context;
     this.setState({
-      ...store
+      ...getStore()
     })
   }
   render(){
