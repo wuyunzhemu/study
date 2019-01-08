@@ -1,0 +1,19 @@
+{
+  "name": "koa",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "wuyunzhemu <415159489@qq.com> (http://github.com/wuyunzhemu)",
+  "license": "MIT",
+  "dependencies": {
+    "fs.promised": "^3.0.0",
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "npm": "^6.5.0"
+  }
+}
