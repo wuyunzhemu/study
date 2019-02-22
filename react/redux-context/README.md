@@ -21,3 +21,6 @@ redux ? context
 
   全局的store 代码重复，违反了dry dont repeat yourself  声明周期 _setUp() contextTypes
   connect react-redux HOC
+
+  - connect 封装，有关的context的操作都交给他
+  - 后代组件，只需要做自己的事

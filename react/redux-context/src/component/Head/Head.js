@@ -1,30 +1,16 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
+import { connect } from '../../redux';
 
-export default class Head extends Component{
-  static contextTypes = {
-    store:PropTypes.object,
-    subscribe:PropTypes.func,
-    getStore:PropTypes.func
-  }
-  constructor(props){
-    super(props);
-    this.state = {};
-  }
-  componentWillMount = () => {
-    const {subscribe} = this.context;
-    this._upState();
-    subscribe(()=>this._upState())
-  }
-  _upState(){
-    const {getStore} = this.context;
-    this.setState({
-      ...getStore()
-    })
-  }
+ class Head extends Component{
   render(){
     return(
-      <div className="head">{this.state.head}</div>
+      <div className="head">{this.props.head}</div>
     )
   }
 }
+
+const propsType = {
+  store:PropTypes.object
+}
+export default connect(Head,propsType);

@@ -1,28 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-export default class Button extends Component {
-  static contextTypes = {
-    store: PropTypes.object,
-    subscribe:PropTypes.func,
-    getStore:PropTypes.func,
-    dispatch:PropTypes.func
-  }
-  constructor (props) {
-    super(props);
-    this.state = {};
-  }
-  componentWillMount() {
-    this._upState();
-  }
-  _upState () {
-    const { store } = this.context;
-    this.setState({
-      ...store
-    });
-  }
-
+import { connect } from '../../redux';
+ class Button extends Component {
   changeContext = (type) => {
-    const {dispatch} = this.context;
+    const {dispatch} = this.props;
     const key = type ==='HEAD'?
     'head':'body'
     dispatch({
@@ -34,9 +15,11 @@ export default class Button extends Component {
   render () {
     return (
       <div className="button">
-        <div className="btn" onClick={()=> this.changeContext('HEAD')}>{this.state.headBtn}</div>
-        <div className="btn" onClick={()=>this.changeContext('BODY')}>{this.state.bodyBtn}</div>
+        <div className="btn" onClick={()=> this.changeContext('HEAD')}>{this.props.headBtn}</div>
+        <div className="btn" onClick={()=>this.changeContext('BODY')}>{this.props.bodyBtn}</div>
       </div>
     )
   }
 }
+
+export default connect(Button)
