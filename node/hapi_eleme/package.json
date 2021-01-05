@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "env2": "^2.2.2",
     "hapi": "16",
     "hapi-swagger": "7",
