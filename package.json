@@ -27,7 +27,7 @@
     "antd-mobile": "^2.2.8",
     "cloud": "^2.0.2",
     "env2": "^2.2.2",
-    "got": "^9.2.2",
+    "got": "^11.8.5",
     "hapi": "16",
     "hapi-swagger": "7",
     "immutable": "^4.0.0-rc.12",
